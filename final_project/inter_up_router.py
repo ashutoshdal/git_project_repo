@@ -5,7 +5,11 @@
 
 #importing connecthandler to telnet or connect with router
 
-import netmiko from connecthandler
+import netmiko from ConnectHcalling
+import csv
+import sys
+import pprint
+
 
 
 #dictonery created and providing the info about device
@@ -16,6 +20,28 @@ cisco_1700{
 'username':'root',
 'password':'cisco'
 }
+
+# Function to convert a csv file to a list of dictionaries.
+ 
+def csv_dict_list(device_list):
+	reader = csv.DictReader(open(device_list, 'rb'))
+	empty_list = []
+	for line in reader:
+		empty_list.append(line)
+	return empty_list
+ 
+# Calls the csv_dict_list function, passing the named csv
+device_list_csv='device_list.csv' 
+device_dictonery=csv_dict_list(device_list_csv)
+
+#pprint.pprint(device_dictonery)
+
+
+
+ 
+
+
+
 
 
  
