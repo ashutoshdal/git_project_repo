@@ -31,19 +31,3 @@ def csv_dict_list(device_list):
 		empty_list.append(line)
 	return empty_list
  
-# Calls the csv_dict_list function, passing the named csv
-device_list_csv='device_list.csv' 
-device_dictonery=csv_dict_list(device_list_csv)
-
-#pprint.pprint(device_dictonery)
-
-#checking the prompt and exit out if in ConfigT
-def Exit_Prompt(connection):
-
-	if connection.check_config_mode():
-		connection.exit_config_mode()
-	
-	if connection.check_enable_mode():
-		connection.exit_enable_mode()
-
-
