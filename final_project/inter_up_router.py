@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+
  
 
 
 
 #importing connecthandler to telnet or connect with router
 
-import netmiko from ConnectHcalling
+from netmiko import ConnectHandler
 import csv
 import sys
 import pprint
@@ -36,13 +37,13 @@ device_dictonery=csv_dict_list(device_list_csv)
 
 #pprint.pprint(device_dictonery)
 
+#checking the prompt and exit out if in ConfigT
+def Exit_Prompt(connection):
 
+	if connection.check_config_mode():
+		connection.exit_config_mode()
+	
+	if connection.check_enable_mode():
+		connection.exit_enable_mode()
 
- 
-
-
-
-
-
- 
 
